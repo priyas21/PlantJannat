@@ -1,5 +1,17 @@
 ﻿import {data} from "../PlantData";
 
+function CareGuide({sun, soil, difficultyRating, plantingTime, potting, pruning}) {
+    return(
+        <span className="careGuide w-100 h-100">
+            <strong>Sun: </strong>{sun}
+            <strong>Soil: </strong>{soil}
+            <strong>Difficulty Rating: </strong>{difficultyRating}
+            <strong>Planting Time: </strong>{plantingTime}
+            <strong>Potting: </strong> {potting}
+            <strong>Pruning: </strong> {pruning}
+        </span>
+    )
+}
 const IndexPage = () => {
     const {id, plantName, description, botanicalName, water, fertilization, careGuide} = data[0];
     return(
@@ -16,7 +28,7 @@ const IndexPage = () => {
                         careGuide} = plant;
                     
                     return (
-                        <div className="col-xs-12 col-sm-12 col-md-16 col-lg-4 col-sm-12 col-xs-12">
+                        <div key={id} className="col-xs-12 col-sm-12 col-md-16 col-lg-4 col-sm-12 col-xs-12">
                             <div className="card card-height p-3 mt-3">
                                 <div className="plant-img d-flex flex-row justify-content-center align-items-center h-300">
                                     <img
@@ -39,14 +51,7 @@ const IndexPage = () => {
                                     </div>
                                 </div>
                                 <div className="careGuideBox card h-30">
-                        <span className="careGuide w-100 h-100">
-                            <strong>Sun: </strong>{careGuide.sun}
-                            <strong>Soil: </strong>{careGuide.soil}
-                            <strong>Difficulty Rating: </strong>{careGuide.difficultyRating}
-                            <strong>Planting Time: </strong>{careGuide.plantingTime}
-                            <strong>Potting: </strong> {careGuide.potting}
-                            <strong>Pruning: </strong> {careGuide.pruning}
-                        </span>
+                                    <CareGuide careGuide = {careGuide}/>
                                 </div>
                             </div>
                         </div>
