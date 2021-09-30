@@ -598,7 +598,6 @@ input:checked + .switch:before {
 .careGuideBox {
     border-top: 1px solid #d6d6d6;
     border-radius: 0 0 5px 5px;
-    padding: 10px 20px 10px 10px;
     background: #fff;
     position: relative;
     display: block;

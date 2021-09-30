@@ -1,6 +1,6 @@
 ﻿function CareGuide({difficultyRating, plantingTime, potting, pruning}) {
     return(
-        <span className="careGuide w-100 h-100">
+        <span className="careGuide">
             <strong>Difficulty Rating: </strong>{difficultyRating}
             <strong>Planting Time: </strong>{plantingTime}
             <strong>Potting: </strong> {potting}
@@ -34,20 +34,20 @@ function PlantDemographics({botanicalName, description, water, fertilization, su
                 <p className="card-description">
                     {description}
                 </p>
-                <div className="social d-flex flex-row mt-4">
+                <div className="social d-flex flex-row mt-4 mb-2">
                     <div className="bi-droplet">
                         <h5>Water</h5>
                         <h6>{water}</h6>
                     </div>
                     <div className="bi-flower1">
-                        <h5>Fertilization</h5>
+                        <h5>Feed</h5>
                         <h6>{fertilization}</h6>
                     </div>
                     <div className="bi-sun">
                         <h5>Sun</h5>
                         <h6>{sun}</h6>
                     </div>
-                    <div className="bi-phone-landscape">
+                    <div className="bi-tree">
                         <h5>Soil</h5>
                         <h6>{soil}</h6>
                     </div>
