@@ -1,8 +1,6 @@
-﻿function CareGuide({sun, soil, difficultyRating, plantingTime, potting, pruning}) {
+﻿function CareGuide({difficultyRating, plantingTime, potting, pruning}) {
     return(
         <span className="careGuide w-100 h-100">
-            <strong>Sun: </strong>{sun}
-            <strong>Soil: </strong>{soil}
             <strong>Difficulty Rating: </strong>{difficultyRating}
             <strong>Planting Time: </strong>{plantingTime}
             <strong>Potting: </strong> {potting}
@@ -24,7 +22,7 @@ function PlantImage({plantName, botanicalName}) {
     )
 }
 
-function PlantDemographics({botanicalName, description, water, fertilization }) {
+function PlantDemographics({botanicalName, description, water, fertilization, sun, soil }) {
     return (
         <div className="plant-info">
             <div className="d-flex justify-content-between mb-3">
@@ -33,9 +31,27 @@ function PlantDemographics({botanicalName, description, water, fertilization }) 
                 </h3>
             </div>
             <div>
-                <p>
-                    {description}{water}{fertilization}
+                <p className="card-description">
+                    {description}
                 </p>
+                <div className="social d-flex flex-row mt-4">
+                    <div className="bi-droplet">
+                        <h5>Water</h5>
+                        <h6>{water}</h6>
+                    </div>
+                    <div className="bi-flower1">
+                        <h5>Fertilization</h5>
+                        <h6>{fertilization}</h6>
+                    </div>
+                    <div className="bi-sun">
+                        <h5>Sun</h5>
+                        <h6>{sun}</h6>
+                    </div>
+                    <div className="bi-phone-landscape">
+                        <h5>Soil</h5>
+                        <h6>{soil}</h6>
+                    </div>
+                </div>
             </div>
         </div>
     )
