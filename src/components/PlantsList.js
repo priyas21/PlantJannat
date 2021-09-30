@@ -1,7 +1,6 @@
-﻿import {data} from "../../PlantData";
-import Plant from "./PlantInfo";
+﻿import Plant from "./PlantInfo";
 
-function AllPlantsInfo() {
+function PlantsList({data}) {
     return(
         <div className="container plants-list">
             <div className="row">
@@ -15,4 +14,4 @@ function AllPlantsInfo() {
     )
 }
 
-export default AllPlantsInfo;
+export default PlantsList;

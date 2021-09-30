@@ -1,8 +1,8 @@
-﻿import AllPlantsInfo from "../src/components/AllPlantsInfo";
+﻿import AllPlants from "../src/components/AllPlants";
 
 const IndexPage = () => {
     return(
-      <AllPlantsInfo />
+      <AllPlants />
     )
 }
 
