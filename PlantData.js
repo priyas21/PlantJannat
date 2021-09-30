@@ -6,9 +6,9 @@ export const data = [
     botanicalName: "Monstera deliciosa",
     water: "Every 5 days",
     fertilization: "Every 30 days",
+    soil: "chalky, loam, clay, sand well-drained",
+    sun: "Partial sun",
     careGuide: {
-      soil: "chalky, loam, clay, sand well-drained",
-      sun: "Partial sun",
       difficultyRating: "super easy",
       plantingTime: "spring, summer, autumn",
       potting: "Needs excellent drainage in pots",
@@ -22,9 +22,9 @@ export const data = [
     botanicalName: "Strelitzia nicolai",
     water: "Every 3 days",
     fertilization: "Every 30 days",
-    careGuide: {
-      soil: "rich soil, well-drained",
-      sun: "full sun",
+    soil: "Rich soil, well-drained",
+    sun: "full sun",
+    careGuide: {       
       difficultyRating: "medium",
       plantingTime: "spring",
       potting: "Needs excellent drainage in pots",
