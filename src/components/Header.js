@@ -1,4 +1,4 @@
-﻿function Header() {
+﻿function Header({theme}) {
     return(
         <div className="padT4 padB4">
             <div className="container mobile-container">
@@ -12,11 +12,11 @@
                         />
                     </div>
                     <div className="light">
-                        <h4 className="header-title">
+                        <h4 className={theme === "light" ? "header-title" : "dark-theme-header"}>
                             Plant Jannat
                         </h4>
                     </div>
-                    <div className="text-dark">
+                    <div className={theme === "light" ? "" : "text-info"}>
                         Hello! Priya &nbsp;
                         <span>
                             <a href="#">sign-out</a>

@@ -1,8 +1,8 @@
 ﻿import {useState} from "react";
 
-function PlantToolbar() {
+function PlantToolbar({theme, setTheme}) {
     const [showCareGuide, setShowCareGuide] = useState(true);
-    const [theme, setTheme] = useState("light");
+   
     return(
         <div className="toolbar dark-theme-header">
             <div className="container">
