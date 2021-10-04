@@ -4,7 +4,7 @@ import Header from "./Header";
 import PlantToolbar from "./PlantToolbar"
 import {useState} from "react";
 
-function AllPlants() {
+function App() {
     const [theme, setTheme] = useState("light");
     return(
         <div className={theme === "light" ? "container-fluid light" : "container-fluid dark"}>
@@ -15,4 +15,4 @@ function AllPlants() {
     )
 }
 
-export default AllPlants;
+export default App;
