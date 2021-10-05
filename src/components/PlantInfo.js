@@ -57,16 +57,18 @@ function PlantDemographics({botanicalName, description, water, fertilization, su
     )
 }
 
-function Plant({plantInfo}) {
+function Plant({plantInfo, showCareGuide}) {
     const{plantName, botanicalName, careGuide} = plantInfo;
     return(
         <div className="col-xs-12 col-sm-12 col-md-16 col-lg-4 col-sm-12 col-xs-12">
             <div className="card card-height p-3 mt-3">
                 <PlantImage plantName = {plantName} botanicalName={botanicalName}/>
                 <PlantDemographics {...plantInfo} />
-                <div className="careGuideBox card h-30">
-                    <CareGuide {...careGuide}/>
-                </div>
+                {showCareGuide === true ?
+                    <div className="careGuideBox card h-30">
+                        <CareGuide {...careGuide}/>
+                    </div>
+                : null }
             </div>
         </div>
     )
