@@ -1,5 +1,4 @@
-﻿import {data} from "../../PlantData";
-import Header from "./Header";
+﻿import Header from "./Header";
 import Plants from "./Plants";
 import {useState} from "react";
 
@@ -8,7 +7,7 @@ function App() {
     return(
         <div className={theme === "light" ? "container-fluid light" : "container-fluid dark"}>
             <Header theme={theme} />
-            <Plants data = {data} theme = {theme} setTheme = {setTheme} />
+            <Plants theme = {theme} setTheme = {setTheme} />
         </div>
     )
 }

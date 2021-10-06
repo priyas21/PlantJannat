@@ -2,7 +2,7 @@
 import PlantsList from "./PlantsList";
 import {useState} from "react";
 
-function Plants({data, theme, setTheme}){
+function Plants({theme, setTheme}){
     const [showCareGuide, setShowCareGuide] = useState(true);
     
     return(
@@ -13,7 +13,7 @@ function Plants({data, theme, setTheme}){
                 showCareGuide={showCareGuide}
                 setShowCareGuide={setShowCareGuide}
             />
-            <PlantsList data ={data} showCareGuide={showCareGuide} />
+            <PlantsList showCareGuide={showCareGuide} />
         </>
     )
 }
