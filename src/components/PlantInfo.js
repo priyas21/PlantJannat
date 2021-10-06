@@ -21,8 +21,22 @@ function PlantImage({plantName, botanicalName}) {
         </div>
     )
 }
+function AddToMyGarden({addToMyGarden}){
+    return (
+        <div className="action padB1">
+            <span>
+                <i className={addToMyGarden === true ?
+                    "fa fa-star orange" : "fa fa-star-o orange"
+                }
+                /> {" "}
+            Add To My Garden{" "}
+            </span>
+        </div>
 
-function PlantDemographics({botanicalName, description, water, fertilization, sun, soil }) {
+    )
+}
+
+function PlantDemographics({botanicalName, description, water, fertilization, sun, soil, addToMyGarden }) {
     return (
         <div className="plant-info">
             <div className="d-flex justify-content-between mb-3">
@@ -30,6 +44,8 @@ function PlantDemographics({botanicalName, description, water, fertilization, su
                     {botanicalName}
                 </h3>
             </div>
+            <AddToMyGarden 
+            addToMyGarden = {addToMyGarden} />
             <div>
                 <p className="card-description">
                     {description}
