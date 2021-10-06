@@ -8,6 +8,7 @@ export const data = [
     fertilization: "Every 30 days",
     soil: "chalky, loam, sand well-drained",
     sun: "Partial sun",
+    addToMyGarden: false,
     careGuide: {
       difficultyRating: "super easy",
       plantingTime: "spring, summer, autumn",
@@ -24,6 +25,7 @@ export const data = [
     fertilization: "Every 30 days",
     soil: "Rich soil, well-drained",
     sun: "Full sun",
+    addToMyGarden: false,
     careGuide: {       
       difficultyRating: "medium",
       plantingTime: "spring",
@@ -40,6 +42,7 @@ export const data = [
     fertilization: "Every 180 days",
     soil: "Slightly acidic, well-drained",
     sun: "Full sun to partial sun",
+    addToMyGarden: false,
     careGuide: {
       difficultyRating: "easy",
       plantingTime: "spring, summer, autumn",
@@ -56,6 +59,7 @@ export const data = [
     fertilization: "Every 30 days",
     soil: "Sand, loam",
     sun: "Partial sun to full shade",
+    addToMyGarden: false,
     careGuide: {
       difficultyRating: "easy",
       plantingTime: "spring, autumn",
@@ -72,6 +76,7 @@ export const data = [
     fertilization: "Every 180 days",
     soil: "Slightly acidic, well-drained",
     sun: "Full sun",
+    addToMyGarden: false,
     careGuide: {
       difficultyRating: "easy",
       plantingTime: "spring, autumn",
