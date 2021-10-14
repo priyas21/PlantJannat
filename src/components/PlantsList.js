@@ -4,6 +4,23 @@ import {useState} from "react";
 
 function PlantsList({showCareGuide}) {
     const[plantsData, setPlantsData] = useState(data);
+
+    function onAddToMyGardenToggle(id){
+        const plantRecPrevious = plantsData.find(function (rec){
+            return rec.id === id;
+        });
+        
+        const plantRecUpdated = {
+            ...plantRecPrevious,
+            addToMyGarden: !plantRecPrevious.addToMyGarden
+        };
+        
+        const plantsDataNew = plantsData.map(function (rec){
+            return rec.id === id ? plantRecUpdated : rec;
+        });
+        
+        setPlantsData(plantsDataNew);
+    }
     
     return(
         <div className="container plants-list">
@@ -13,7 +30,8 @@ function PlantsList({showCareGuide}) {
                         <Plant 
                             key={plantInfo.id}
                             plantInfo = {plantInfo}
-                            showCareGuide={showCareGuide} 
+                            showCareGuide={showCareGuide}
+                            onAddToMyGardenToggle={() => {onAddToMyGardenToggle(plantInfo.id)}}
                         />
                     )})
                 }
@@ -21,5 +39,6 @@ function PlantsList({showCareGuide}) {
         </div>
     )
 }
+
 
 export default PlantsList;

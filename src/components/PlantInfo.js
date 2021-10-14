@@ -21,10 +21,10 @@ function PlantImage({plantName, botanicalName}) {
         </div>
     )
 }
-function AddToMyGarden({addToMyGarden}){
+function AddToMyGarden({addToMyGarden, onAddToMyGardenToggle}){
     return (
         <div className="action padB1">
-            <span>
+            <span onClick={onAddToMyGardenToggle}>
                 <i className={addToMyGarden === true ?
                     "fa fa-star orange" : "fa fa-star-o orange"
                 }
@@ -36,7 +36,7 @@ function AddToMyGarden({addToMyGarden}){
     )
 }
 
-function PlantDemographics({botanicalName, description, water, fertilization, sun, soil, addToMyGarden }) {
+function PlantDemographics({botanicalName, description, water, fertilization, sun, soil, addToMyGarden, onAddToMyGardenToggle }) {
     return (
         <div className="plant-info">
             <div className="d-flex justify-content-between mb-3">
@@ -45,7 +45,8 @@ function PlantDemographics({botanicalName, description, water, fertilization, su
                 </h3>
             </div>
             <AddToMyGarden 
-            addToMyGarden = {addToMyGarden} />
+            addToMyGarden = {addToMyGarden} 
+            onAddToMyGardenToggle={onAddToMyGardenToggle}/>
             <div>
                 <p className="card-description">
                     {description}
@@ -73,13 +74,13 @@ function PlantDemographics({botanicalName, description, water, fertilization, su
     )
 }
 
-function Plant({plantInfo, showCareGuide}) {
+function Plant({plantInfo, showCareGuide, onAddToMyGardenToggle}) {
     const{plantName, botanicalName, careGuide} = plantInfo;
     return(
         <div className="col-xs-12 col-sm-12 col-md-16 col-lg-4 col-sm-12 col-xs-12">
             <div className="card card-height p-3 mt-3">
                 <PlantImage plantName = {plantName} botanicalName={botanicalName}/>
-                <PlantDemographics {...plantInfo} />
+                <PlantDemographics {...plantInfo} onAddToMyGardenToggle = {onAddToMyGardenToggle} />
                 {showCareGuide === true ?
                     <div className="careGuideBox card h-30">
                         <CareGuide {...careGuide}/>
