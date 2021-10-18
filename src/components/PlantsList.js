@@ -1,9 +1,18 @@
 ﻿import Plant from "./PlantInfo";
 import {data} from "../../PlantData";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function PlantsList({showCareGuide}) {
-    const[plantsData, setPlantsData] = useState(data);
+    const[plantsData, setPlantsData] = useState([]);
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    
+    useEffect(() => {
+        async function delayFunc() {
+            await delay(2000);
+            setPlantsData(data)
+        }
+        delayFunc();
+    },[]);
 
     function onAddToMyGardenToggle(id){
         const plantRecPrevious = plantsData.find(function (rec){
