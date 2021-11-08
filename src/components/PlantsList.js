@@ -1,17 +1,17 @@
 ﻿import Plant from "./PlantInfo";
 import ReactPlaceholder from "react-placeholder";
-import useRequestPlantsInfo from "../hooks/useRequesPlantsInfo";
+import useRequestPlantsInfo, {REQUEST_STATUS} from "../hooks/useRequesPlantsInfo";
 
 function PlantsList({showCareGuide}) {
     
     const {
         plantsData, 
-        isLoading, 
-        hasErrored, error,
+        requestStatus,
+        error,
         onAddToMyGardenToggle 
     } = useRequestPlantsInfo(2000);
     
-    if(hasErrored === true) {
+    if(requestStatus === REQUEST_STATUS.FAILURE) {
         return (
             <div className="danger">
                 Error: <b>Loading Plants data failed {error}</b>
@@ -25,7 +25,7 @@ function PlantsList({showCareGuide}) {
                 type="media"
                 rows={15}
                 className="plantslist-placeholder"
-                ready={isLoading===false}
+                ready={requestStatus===REQUEST_STATUS.SUCCESS}
             >
                 <div className="row">
                     {plantsData.map(function (plantInfo) {
