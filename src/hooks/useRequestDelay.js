@@ -32,29 +32,24 @@ function useRequestDelay(delayTime = 1000, initialData = []) {
         const newRecords = data.map(function(rec) {
             return rec.id === recordUpdated.id ? recordUpdated : rec;
         }); 
+        
+        async function delayFunction() {
+            try {
+                await delay(delayTime);
+                setData(newRecords);
+            }
+            catch (e) {
+                console.log("error thrown inside delayFunc", e);
+            }
+        }
+        delayFunction();
     }
     
-    function onAddToMyGardenToggle(id){
-        const plantRecPrevious = data.find(function (rec){
-            return rec.id === id;
-        });
-
-        const plantRecUpdated = {
-            ...plantRecPrevious,
-            addToMyGarden: !plantRecPrevious.addToMyGarden
-        };
-
-        const plantsDataNew = data.map(function (rec){
-            return rec.id === id ? plantRecUpdated : rec;
-        });
-
-        setData(plantsDataNew);
-    }
     return {
         data,
         requestStatus,
         error,
-        onAddToMyGardenToggle 
+        updateRecord
     };
 }
 
