@@ -1,5 +1,4 @@
 ﻿import {useEffect, useState} from "react";
-import {data} from "../../PlantData";
 
 export const REQUEST_STATUS = {
     LOADING: "loading",
@@ -7,8 +6,8 @@ export const REQUEST_STATUS = {
     FAILURE: "failure"
 };
 
-function useRequestPlantsInfo(delayTime = 1000) {
-    const [plantsData, setPlantsData] = useState([]);
+function useRequestDelay(delayTime = 1000, initialData = []) {
+    const [data, setData] = useState(initialData);
     const [requestStatus, setRequestStatus] = useState(REQUEST_STATUS.LOADING);
     const [error, setError] = useState("");
 
@@ -19,7 +18,7 @@ function useRequestPlantsInfo(delayTime = 1000) {
             try {
                 await delay(delayTime);
                 setRequestStatus(REQUEST_STATUS.SUCCESS);
-                setPlantsData(data)
+                setData(data)
             }
             catch (e) {
                 setRequestStatus(REQUEST_STATUS.FAILURE)
@@ -29,8 +28,14 @@ function useRequestPlantsInfo(delayTime = 1000) {
         delayFunc();
     },[]);
 
+    function updateRecord(recordUpdated) {
+        const newRecords = data.map(function(rec) {
+            return rec.id === recordUpdated.id ? recordUpdated : rec;
+        }); 
+    }
+    
     function onAddToMyGardenToggle(id){
-        const plantRecPrevious = plantsData.find(function (rec){
+        const plantRecPrevious = data.find(function (rec){
             return rec.id === id;
         });
 
@@ -39,19 +44,19 @@ function useRequestPlantsInfo(delayTime = 1000) {
             addToMyGarden: !plantRecPrevious.addToMyGarden
         };
 
-        const plantsDataNew = plantsData.map(function (rec){
+        const plantsDataNew = data.map(function (rec){
             return rec.id === id ? plantRecUpdated : rec;
         });
 
-        setPlantsData(plantsDataNew);
+        setData(plantsDataNew);
     }
     return {
-        plantsData,
+        data,
         requestStatus,
         error,
         onAddToMyGardenToggle 
     };
 }
 
-export default useRequestPlantsInfo;
+export default useRequestDelay;
 

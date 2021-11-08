@@ -1,6 +1,6 @@
 ﻿import Plant from "./PlantInfo";
 import ReactPlaceholder from "react-placeholder";
-import useRequestPlantsInfo, {REQUEST_STATUS} from "../hooks/useRequesPlantsInfo";
+import useRequestDelay, {REQUEST_STATUS} from "../hooks/useRequesPlantsInfo";
 
 function PlantsList({showCareGuide}) {
     
@@ -9,7 +9,7 @@ function PlantsList({showCareGuide}) {
         requestStatus,
         error,
         onAddToMyGardenToggle 
-    } = useRequestPlantsInfo(2000);
+    } = useRequestDelay(2000, );
     
     if(requestStatus === REQUEST_STATUS.FAILURE) {
         return (
