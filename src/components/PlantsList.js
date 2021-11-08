@@ -1,15 +1,16 @@
 ﻿import Plant from "./PlantInfo";
 import ReactPlaceholder from "react-placeholder";
-import useRequestDelay, {REQUEST_STATUS} from "../hooks/useRequesPlantsInfo";
+import useRequestDelay, {REQUEST_STATUS} from "../hooks/useRequestDelay";
+import {data} from "../../PlantData";
 
 function PlantsList({showCareGuide}) {
     
     const {
-        plantsData, 
+        data: plantsData, 
         requestStatus,
         error,
-        onAddToMyGardenToggle 
-    } = useRequestDelay(2000, );
+        updateRecord 
+    } = useRequestDelay(1000, data );
     
     if(requestStatus === REQUEST_STATUS.FAILURE) {
         return (
@@ -34,7 +35,12 @@ function PlantsList({showCareGuide}) {
                                 key={plantInfo.id}
                                 plantInfo = {plantInfo}
                                 showCareGuide={showCareGuide}
-                                onAddToMyGardenToggle={() => {onAddToMyGardenToggle(plantInfo.id)}}
+                                onAddToMyGardenToggle={() => {
+                                    updateRecord({
+                                        ...plantInfo,
+                                        addToMyGarden: !plantInfo.addToMyGarden,
+                                    });
+                                }}
                             />
                         )})
                     }
