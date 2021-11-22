@@ -22,9 +22,15 @@ function PlantImage({plantName, botanicalName}) {
     )
 }
 function AddToMyGarden({addToMyGarden, onAddToMyGardenToggle}){
+    function doneCallback() {
+        console.log(`In AddToMyGarden:doneCallback ${new Date().getMilliseconds()}`);
+    }
+    
     return (
         <div className="action padB1">
-            <span onClick={onAddToMyGardenToggle}>
+            <span onClick={ function () {
+                return onAddToMyGardenToggle(doneCallback);
+            }}>
                 <i className={addToMyGarden === true ?
                     "fa fa-star orange" : "fa fa-star-o orange"
                 }

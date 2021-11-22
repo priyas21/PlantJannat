@@ -35,11 +35,11 @@ function PlantsList({showCareGuide}) {
                                 key={plantInfo.id}
                                 plantInfo = {plantInfo}
                                 showCareGuide={showCareGuide}
-                                onAddToMyGardenToggle={() => {
+                                onAddToMyGardenToggle={(doneCallback) => {
                                     updateRecord({
                                         ...plantInfo,
                                         addToMyGarden: !plantInfo.addToMyGarden,
-                                    });
+                                    }, doneCallback);
                                 }}
                             />
                         )})
