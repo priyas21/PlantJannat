@@ -2,14 +2,12 @@
 import PlantsList from "./PlantsList";
 import {useState} from "react";
 
-function Plants({theme, setTheme}){
+function Plants(){
     const [showCareGuide, setShowCareGuide] = useState(true);
     
     return(
         <>
             <PlantToolbar 
-                theme={theme}
-                setTheme={setTheme}
                 showCareGuide={showCareGuide}
                 setShowCareGuide={setShowCareGuide}
             />
