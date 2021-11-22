@@ -1,4 +1,6 @@
-﻿function CareGuide({difficultyRating, plantingTime, potting, pruning}) {
+﻿import {useState} from "react";
+
+function CareGuide({difficultyRating, plantingTime, potting, pruning}) {
     return(
         <span className="careGuide">
             <strong>Difficulty Rating: </strong>{difficultyRating}
@@ -22,20 +24,25 @@ function PlantImage({plantName, botanicalName}) {
     )
 }
 function AddToMyGarden({addToMyGarden, onAddToMyGardenToggle}){
+    const[inTransition, setInTransition] = useState(false);
     function doneCallback() {
-        console.log(`In AddToMyGarden:doneCallback ${new Date().getMilliseconds()}`);
+        setInTransition(false);
     }
     
     return (
         <div className="action padB1">
             <span onClick={ function () {
+                setInTransition(true);
                 return onAddToMyGardenToggle(doneCallback);
             }}>
                 <i className={addToMyGarden === true ?
                     "fa fa-star orange" : "fa fa-star-o orange"
                 }
                 /> {" "}
-            Add To My Garden{" "}
+                Add To My Garden{" "}
+                {inTransition ? (
+                    <span className="fas fa-circle-notch fa-spin"></span>
+                ) : null}
             </span>
         </div>
 
