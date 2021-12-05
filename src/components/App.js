@@ -1,20 +1,16 @@
 ﻿import Header from "./Header";
 import Plants from "./Plants";
-import { useState, createContext } from "react";
-
-export const ThemeContext = createContext();
+import Layout from "./layout";
 
 function App() {
-    
-    const [theme, setTheme] = useState("light");
     return(
-        <ThemeContext.Provider value = {{setTheme, theme}} >
-            <div className={theme === "light" ? "container-fluid light" : "container-fluid dark"}>
-                <Header />
-                <Plants />
-            </div>
-        </ThemeContext.Provider>
-    )
+      <Layout startingTheme="light">
+          <div>
+              <Header/>
+              <Plants/>
+          </div>
+      </Layout>
+    );
 }
 
 export default App;

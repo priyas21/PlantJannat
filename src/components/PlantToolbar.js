@@ -1,6 +1,5 @@
-﻿import {useState} from "react";
-import {useContext} from "react";
-import {ThemeContext} from "./App";
+﻿import {useContext} from "react";
+import {ThemeContext} from "./layout";
 
 function PlantToolbar({ showCareGuide, setShowCareGuide }) {
     const {setTheme, theme} = useContext(ThemeContext);
