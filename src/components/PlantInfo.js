@@ -1,5 +1,5 @@
 ﻿import {useContext, useState} from "react";
-import {ShowCareGuideContext} from "../contexts/ShowCareGuideContext";
+import {PlantsFilterContext} from "../contexts/PlantsFilterContext";
 
 function CareGuide({difficultyRating, plantingTime, potting, pruning}) {
     return(
@@ -90,7 +90,7 @@ function PlantDemographics({botanicalName, description, water, fertilization, su
 
 function Plant({plantInfo, onAddToMyGardenToggle}) {
     const{plantName, botanicalName, careGuide} = plantInfo;
-    const { showCareGuide } = useContext(ShowCareGuideContext);
+    const { showCareGuide } = useContext(PlantsFilterContext);
     return(
         <div className="col-xs-12 col-sm-12 col-md-16 col-lg-4 col-sm-12 col-xs-12">
             <div className="card card-height p-3 mt-3">

@@ -1,14 +1,14 @@
 ﻿import PlantToolbar from "./PlantToolbar";
 import PlantsList from "./PlantsList";
-import { ShowCareGuideProvider } from "../contexts/ShowCareGuideContext";
+import { PlantsFilterProvider } from "../contexts/PlantsFilterContext";
 
 function Plants(){
 
     return(
-        <ShowCareGuideProvider startingShowCareGuide={false}>
+        <PlantsFilterProvider startingShowCareGuide={false}>
             <PlantToolbar/>
             <PlantsList />
-        </ShowCareGuideProvider>
+        </PlantsFilterProvider>
     )
 }
 

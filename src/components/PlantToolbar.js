@@ -1,10 +1,15 @@
 ﻿import {useContext} from "react";
 import {ThemeContext} from "../contexts/ThemeContext";
-import {ShowCareGuideContext} from "../contexts/ShowCareGuideContext";
+import {PlantsFilterContext} from "../contexts/PlantsFilterContext";
 
 function PlantToolbar() {
     const {setTheme, theme} = useContext(ThemeContext);
-    const { showCareGuide, setShowCareGuide } = useContext(ShowCareGuideContext);
+    const {
+        showCareGuide, setShowCareGuide,
+        eventYear, setEventYear,
+        setSearchQuery,
+        EVENT_YEARS
+    } = useContext(PlantsFilterContext);
     
     return(
         <div className="toolbar dark-theme-header">
@@ -30,6 +35,20 @@ function PlantToolbar() {
                                     <option value="dark">Dark</option>
                                 </select>
                             </label>
+                        </li>
+                        <li>
+                            <div className="input-group">
+                                <input type="text" className="form-control" placeholder="Search..."
+                                       onChange={(event) => {
+                                           setSearchQuery(event.target.value);
+                                       }}
+                                />
+                                <div className="input-group-append">
+                                    <button className="btn btn-secondary" type="button">
+                                        <i className="fa fa-search"/>
+                                    </button>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
