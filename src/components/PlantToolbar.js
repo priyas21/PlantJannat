@@ -1,8 +1,10 @@
 ﻿import {useContext} from "react";
 import {ThemeContext} from "../contexts/ThemeContext";
+import {ShowCareGuideContext} from "../contexts/ShowCareGuideContext";
 
-function PlantToolbar({ showCareGuide, setShowCareGuide }) {
+function PlantToolbar() {
     const {setTheme, theme} = useContext(ThemeContext);
+    const { showCareGuide, setShowCareGuide } = useContext(ShowCareGuideContext);
     
     return(
         <div className="toolbar dark-theme-header">

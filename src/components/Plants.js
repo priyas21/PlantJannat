@@ -1,18 +1,14 @@
 ﻿import PlantToolbar from "./PlantToolbar";
 import PlantsList from "./PlantsList";
-import {useState} from "react";
+import { ShowCareGuideProvider } from "../contexts/ShowCareGuideContext";
 
 function Plants(){
-    const [showCareGuide, setShowCareGuide] = useState(true);
-    
+
     return(
-        <>
-            <PlantToolbar 
-                showCareGuide={showCareGuide}
-                setShowCareGuide={setShowCareGuide}
-            />
-            <PlantsList showCareGuide={showCareGuide} />
-        </>
+        <ShowCareGuideProvider startingShowCareGuide={false}>
+            <PlantToolbar/>
+            <PlantsList />
+        </ShowCareGuideProvider>
     )
 }
 

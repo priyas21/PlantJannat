@@ -3,7 +3,7 @@ import ReactPlaceholder from "react-placeholder";
 import useRequestDelay, {REQUEST_STATUS} from "../hooks/useRequestDelay";
 import {data} from "../../PlantData";
 
-function PlantsList({showCareGuide}) {
+function PlantsList() {
     
     const {
         data: plantsData, 
@@ -34,7 +34,6 @@ function PlantsList({showCareGuide}) {
                             <Plant 
                                 key={plantInfo.id}
                                 plantInfo = {plantInfo}
-                                showCareGuide={showCareGuide}
                                 onAddToMyGardenToggle={(doneCallback) => {
                                     updateRecord({
                                         ...plantInfo,
