@@ -3,18 +3,16 @@ import usePlantsFilter from "../hooks/usePlantsFilter";
 
 const PlantsFilterContext = createContext();
 
-function PlantsFilterProvider({children, startingShowCareGuide = false, startingEventYear = "2020"}) {
+function PlantsFilterProvider({children, startingShowCareGuide = false}) {
     const { 
-        showCareGuide, setShowCareGuide, 
-        eventYear, setEventYear, 
+        showCareGuide, setShowCareGuide,
         searchQuery, setSearchQuery
-    } = usePlantsFilter(startingShowCareGuide, startingEventYear);
+    } = usePlantsFilter(startingShowCareGuide);
     
     return(
         <PlantsFilterContext.Provider value={
             {
                 showCareGuide, setShowCareGuide,
-                eventYear, setEventYear,
                 searchQuery, setSearchQuery
             }
         }>

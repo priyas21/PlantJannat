@@ -1,6 +1,6 @@
 ﻿import {useState} from "react";
 
-function usePlantsFilter(startingShowCareGuide, startingEventYear) {
+function usePlantsFilter(startingShowCareGuide) {
     const [showCareGuide, setShowCareGuide] = useState(startingShowCareGuide);
     const [searchQuery, setSearchQuery] = useState("");
     

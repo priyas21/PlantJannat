@@ -6,9 +6,7 @@ function PlantToolbar() {
     const {setTheme, theme} = useContext(ThemeContext);
     const {
         showCareGuide, setShowCareGuide,
-        eventYear, setEventYear,
         setSearchQuery,
-        EVENT_YEARS
     } = useContext(PlantsFilterContext);
     
     return(
