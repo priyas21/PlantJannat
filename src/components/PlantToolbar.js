@@ -1,6 +1,6 @@
-﻿import {useContext} from "react";
-import {ThemeContext} from "../contexts/ThemeContext";
-import {PlantsFilterContext} from "../contexts/PlantsFilterContext";
+﻿import { useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
+import { PlantsFilterContext } from "../contexts/PlantsFilterContext";
 
 function PlantToolbar() {
     const {setTheme, theme} = useContext(ThemeContext);
