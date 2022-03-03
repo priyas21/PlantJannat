@@ -2,6 +2,8 @@
 import ReactPlaceholder from "react-placeholder";
 import useRequestDelay, {REQUEST_STATUS} from "../hooks/useRequestDelay";
 import {data} from "../../PlantData";
+import {useContext} from "react";
+import {PlantsFilterContext} from "../contexts/PlantsFilterContext";
 
 function PlantsList() {
     
@@ -11,6 +13,8 @@ function PlantsList() {
         error,
         updateRecord 
     } = useRequestDelay(1000, data );
+    
+    const { searchQuery } = useContext(PlantsFilterContext);
     
     if(requestStatus === REQUEST_STATUS.FAILURE) {
         return (
@@ -29,19 +33,25 @@ function PlantsList() {
                 ready={requestStatus===REQUEST_STATUS.SUCCESS}
             >
                 <div className="row">
-                    {plantsData.map(function (plantInfo) {
-                        return (
-                            <Plant 
-                                key={plantInfo.id}
-                                plantInfo = {plantInfo}
-                                onAddToMyGardenToggle={(doneCallback) => {
-                                    updateRecord({
-                                        ...plantInfo,
-                                        addToMyGarden: !plantInfo.addToMyGarden,
-                                    }, doneCallback);
-                                }}
-                            />
-                        )})
+                    {plantsData
+                        .filter(function(plant) { //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+                            return(
+                                plant.plantName.toLowerCase().includes(searchQuery) || plant.botanicalName.toLowerCase().includes(searchQuery)
+                            )
+                        }).
+                        map(function (plantInfo) {
+                            return (
+                                <Plant 
+                                    key={plantInfo.id}
+                                    plantInfo = {plantInfo}
+                                    onAddToMyGardenToggle={(doneCallback) => {
+                                        updateRecord({
+                                            ...plantInfo,
+                                            addToMyGarden: !plantInfo.addToMyGarden,
+                                        }, doneCallback);
+                                    }}
+                                />
+                            )})
                     }
                 </div>
             </ReactPlaceholder>
