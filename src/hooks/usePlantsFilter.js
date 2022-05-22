@@ -1,15 +1,15 @@
-﻿import {useState} from "react";
+﻿import { useState } from "react";
 
 function usePlantsFilter(startingShowCareGuide) {
-    const [showCareGuide, setShowCareGuide] = useState(startingShowCareGuide);
-    const [searchQuery, setSearchQuery] = useState("");
+	const [showCareGuide, setShowCareGuide] = useState(startingShowCareGuide);
+	const [searchQuery, setSearchQuery] = useState("");
     
-    return {
-        showCareGuide,
-        setShowCareGuide,
-        searchQuery,
-        setSearchQuery,
-    };
+	return {
+		showCareGuide,
+		setShowCareGuide,
+		searchQuery,
+		setSearchQuery,
+	};
 }
 
 export default usePlantsFilter;

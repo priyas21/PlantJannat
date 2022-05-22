@@ -1,15 +1,16 @@
-﻿import PlantToolbar from "./PlantToolbar";
+﻿import React from "react";
+import PlantToolbar from "./PlantToolbar";
 import PlantsList from "./PlantsList";
 import { PlantsFilterProvider } from "../contexts/PlantsFilterContext";
 
 function Plants(){
 
-    return(
-        <PlantsFilterProvider startingShowCareGuide={false}>
-            <PlantToolbar/>
-            <PlantsList />
-        </PlantsFilterProvider>
-    )
+	return(
+		<PlantsFilterProvider startingShowCareGuide={false}>
+			<PlantToolbar/>
+			<PlantsList />
+		</PlantsFilterProvider>
+	);
 }
 
 export default Plants;
