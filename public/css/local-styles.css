@@ -468,8 +468,8 @@ input:checked + .switch:before {
 }
 
 .box .plant-info {
-    flex: 0 0 60%;
-    max-width: 60%;
+    flex: 0 0 80%;
+    max-width: 80%;
     padding-left: 15px;
 }
 
@@ -1148,7 +1148,7 @@ input:checked + .switch:before {
 }
 
 .card-height {
-    height: 575px;
+    height: 520px;
 }
 
 .blue-btn {
