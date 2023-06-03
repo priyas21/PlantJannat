@@ -24,7 +24,8 @@ function PlantsList() {
 			</div>
 		);
 	}
-    
+
+	console.log(plantsData);
 	return(
 		<div className="container plants-list">
 			<ReactPlaceholder 
@@ -35,7 +36,8 @@ function PlantsList() {
 			>
 				<div className="row">
 					{plantsData
-						.filter(function(plant) { //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+						.filter(function(plant)
+						{
 							return(
 								plant.plantName.toLowerCase().includes(searchQuery) || plant.botanicalName.toLowerCase().includes(searchQuery)
 							);
@@ -45,12 +47,7 @@ function PlantsList() {
 								<Plant 
 									key={plantInfo.id}
 									plantInfo = {plantInfo}
-									onAddToMyGardenToggle={(doneCallback) => {
-										updateRecord({
-											...plantInfo,
-											addToMyGarden: !plantInfo.addToMyGarden,
-										}, doneCallback);
-									}}
+									updateRecord = {updateRecord}
 								/>
 							);})
 					}
